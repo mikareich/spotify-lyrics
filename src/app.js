@@ -7,12 +7,18 @@ const { connectSpotify } = require("./spotify");
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    backgroundThrottling: false,
+    width: 400,
+    height: 250,
+    webPreferences: {
+      nodeIntegration: true,
+    },
+    frame: false,
+    resizable: false,
+    transparent: true,
   });
 
-  win.loadFile("../public/index.html");
+  win.loadFile("public/index.html");
+  win.setAlwaysOnTop(true, "screen-saver");
 
   connectSpotify();
 };

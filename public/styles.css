@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: hsl(141, 73%, 42%);
+
+  --text-0: hsl(0, 0%, 100%);
+  --text-1: hsla(0, 0%, 100%, 0.5);
+  --text-2: hsla(0, 0%, 80%, 0.25);
+
+  --text-onPrimary-0: hsl(0, 0%, 0%);
+  --text-onPrimary-1: hsla(0, 0%, 0%, 0.5);
+}
+
+body {
+  margin: 0;
+  opacity: 0.5;
+  transition: 200ms;
+}
+
+body:hover {
+  opacity: 1;
+}
+
+.container {
+  border-radius: 10px;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 30px 20px 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.top-app-bar {
+  background-color: var(--primary);
+  border-radius: 10000px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 200ms ease-in-out;
+  column-gap: 10px;
+  font-size: 12px;
+}
+
+.top-app-bar:hover {
+  width: 100%;
+}
+
+.top-app-bar .song-progress {
+  white-space: nowrap;
+  font-weight: bold;
+  color: black;
+}
+
+.top-app-bar .song-title {
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: black;
+}
+
+.top-app-bar .close-button {
+  padding: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: unset;
+  font-size: unset;
+  border: none;
+  color: black;
+}
+
+.dragbar {
+  width: 50px;
+  height: 10px;
+  border-radius: 50px;
+  background-color: var(--primary);
+  cursor: move;
+  transition: 200ms ease-in-out;
+}
+
+.dragbar:hover {
+  width: 100%;
+}
+
+.lines {
+  margin: auto 0;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.line {
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.line:nth-child(1),
+.line:nth-child(5) {
+  color: var(--text-2);
+  font-size: 14px;
+}
+
+.line:nth-child(2),
+.line:nth-child(4) {
+  color: var(--text-1);
+  font-size: 20px;
+}
+
+.line:nth-child(3) {
+  color: var(--text-0);
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.line:not(:last-child) {
+  margin-bottom: 15px;
+}

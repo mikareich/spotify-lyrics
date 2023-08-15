@@ -8,7 +8,6 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 
 const CALLBACK_URL = `http://localhost:${PORT}/callback/`;
 
-
 function connectSpotify() {
   const spotifyApi = new SpotifyWebApi({
     clientId: CLIENT_ID,
@@ -19,8 +18,6 @@ function connectSpotify() {
   const scopes = ["user-read-playback-state", "user-read-currently-playing"];
 
   const authorizeURL = spotifyApi.createAuthorizeURL(scopes);
-
-  
 }
 
 module.exports = {
