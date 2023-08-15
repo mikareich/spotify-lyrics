@@ -1,0 +1,3 @@
+ededegit remote add origin https://github.com/mikareich/spotify-lyrics.git
+git branch -M main
+git push -u origin main
