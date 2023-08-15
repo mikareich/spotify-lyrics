@@ -1,29 +1,38 @@
 require("dotenv").config();
 
-const { app, BrowserWindow } = require("electron");
-const startServer = require("./server");
+const { app, BrowserWindow, ipcMain } = require("electron");
+const path = require("path");
 
-const { connectSpotify } = require("./spotify");
+let win;
 
 const createWindow = () => {
-  const win = new BrowserWindow({
-    width: 400,
-    height: 250,
+  win = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
     },
+    alwaysOnTop: true,
     frame: false,
-    resizable: false,
     transparent: true,
+
+    movable: true,
+    resizable: false,
+    minimizable: false,
   });
 
-  win.loadFile("public/index.html");
-  win.setAlwaysOnTop(true, "screen-saver");
-
-  connectSpotify();
+  win.loadFile(path.join(__dirname, "..", "public", "index.html"));
 };
 
-app.whenReady().then(() => {
-  createWindow();
-  startServer();
+app.whenReady().then(createWindow);
+
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") app.quit();
 });
+
+ipcMain.once("set-size", (e, width, height) => {
+  if (!win) return;
+  win.setSize(width, height);
+});
+
+ipcMain.once("close", app.quit);

@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Spotify Circular";
+  src: url("../assets/spotify-circular/CircularSpotifyText-Light.otf")
+    format("opentype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Spotify Circular";
+  src: url("../assets/spotify-circular/CircularSpotifyText-Book.otf")
+    format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Spotify Circular";
+  src: url("../assets/spotify-circular/CircularSpotifyText-Medium.otf")
+    format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Spotify Circular";
+  src: url("../assets/spotify-circular/CircularSpotifyText-Bold.otf")
+    format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Spotify Circular";
+  src: url("../assets/spotify-circular/CircularSpotifyText-Black.otf")
+    format("opentype");
+  font-weight: 900;
+}
