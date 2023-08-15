@@ -20,4 +20,10 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow();
   startServer();
+
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
 });
+
+startServer();

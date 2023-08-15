@@ -20,6 +20,4 @@ function startServer() {
   app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 }
 
-startServer();
-
 module.exports = startServer;
