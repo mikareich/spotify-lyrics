@@ -1,32 +1,35 @@
 {
   "name": "spotify-lyrics",
   "version": "1.0.0",
-  "description": "duenjkenjsad",
-  "main": "src/app.js",
+  "description": "An overlay for Spotify that displays real-time lyrics for the currently playing song",
+  "main": "build/main/index.js",
   "scripts": {
-    "dev": "electron .",
-    "build:win32": "electron-packager . --platform=win32 --arch=x64 --out=release-builds --overwrite",
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "dev:main": "tsc -w --project tsconfig.main.json",
+    "dev:renderer": "tsc -w --project tsconfig.renderer.json",
+    "dev": "concurrently \"npm run dev:main\" \"npm run dev:renderer\" \"electron .\"",
+    "build:main": "tsc --project tsconfig.main.json",
+    "build:renderer": "tsc --project tsconfig.renderer.json",
+    "build": "npm run build:main && npm run build:renderer",
+    "start": "npm run build && electron ."
   },
-  "keywords": [],
-  "author": "Mika Reich, Marco Zillgen",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikareich/spotify-lyrics.git"
+  },
+  "author": "Mika Reich",
   "license": "ISC",
-  "devDependencies": {
-    "@electron-forge/cli": "^6.3.0",
-    "@electron-forge/maker-deb": "^6.3.0",
-    "@electron-forge/maker-rpm": "^6.3.0",
-    "@electron-forge/maker-squirrel": "^6.3.0",
-    "@electron-forge/maker-zip": "^6.3.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^6.3.0",
+  "bugs": {
+    "url": "https://github.com/mikareich/spotify-lyrics/issues"
+  },
+  "homepage": "https://github.com/mikareich/spotify-lyrics#readme",
+  "dependencies": {
     "electron": "^26.0.0",
     "electron-reloader": "^1.2.3"
   },
-  "dependencies": {
-    "dotenv": "^16.3.1",
-    "electron-squirrel-startup": "^1.0.0",
-    "express": "^4.18.2",
-    "spotify-web-api-node": "^5.0.2"
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "concurrently": "^8.2.0",
+    "nodemon": "^3.0.1",
+    "typescript": "^5.1.6"
   }
 }

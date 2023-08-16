@@ -1,0 +1,87 @@
+:root {
+  --black: #141414;
+  --white: #fff;
+  --primary: #1db954;
+  --gray: #d4d4d4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.app-container {
+  width: 400px;
+  height: 100%;
+  padding: 10px 20px 20px;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: "Circular Spotify Text", monospace;
+  opacity: 0.8;
+  transition: opacity 200ms;
+}
+
+.app-container:hover {
+  opacity: 1;
+}
+
+.app-header {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.app-header__song {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.app-header__close {
+  /* Remove default button style */
+  background: none;
+  border: none;
+  font-size: unset;
+  font-family: unset;
+  cursor: pointer;
+  color: var(--gray);
+  text-decoration: underline;
+}
+
+.lyric-lines {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  overflow: hidden;
+}
+
+.lyric-line {
+  white-space: nowrap;
+}
+
+.lyric-line:first-child,
+.lyric-line:last-child {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gray);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lyric-line:nth-child(2) {
+  font-size: 26px;
+  font-weight: 900;
+  animation: marquee 5s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
