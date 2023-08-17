@@ -4,12 +4,8 @@
   "description": "An overlay for Spotify that displays real-time lyrics for the currently playing song",
   "main": "build/main/index.js",
   "scripts": {
-    "dev:main": "tsc -w --project tsconfig.main.json",
-    "dev:renderer": "tsc -w --project tsconfig.renderer.json",
-    "dev": "concurrently \"npm run dev:main\" \"npm run dev:renderer\" \"electron .\"",
-    "build:main": "tsc --project tsconfig.main.json",
-    "build:renderer": "tsc --project tsconfig.renderer.json",
-    "build": "npm run build:main && npm run build:renderer",
+    "dev": "concurrently \"tsc -w\" \"electron .\"",
+    "build": "rimraf build && tsc",
     "start": "npm run build && electron ."
   },
   "repository": {
@@ -24,7 +20,8 @@
   "homepage": "https://github.com/mikareich/spotify-lyrics#readme",
   "dependencies": {
     "electron": "^26.0.0",
-    "electron-reloader": "^1.2.3"
+    "electron-reloader": "^1.2.3",
+    "rimraf": "^5.0.1"
   },
   "devDependencies": {
     "@types/electron": "^1.6.10",

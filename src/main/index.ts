@@ -1,4 +1,5 @@
-import { BrowserWindow, app } from "electron";
+import { BrowserWindow, app, ipcMain } from "electron";
+import path from "path";
 import electronReloader from "electron-reloader";
 
 try {
@@ -13,16 +14,29 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
-    // alwaysOnTop: true,
+    alwaysOnTop: true,
     frame: false,
     transparent: true,
+
+    x: 40,
+    y: 40,
 
     movable: true,
     resizable: false,
     minimizable: false,
+
+    // show: false,
   });
 
-  win.loadFile("public/index.html");
+  win.loadFile(path.join(__dirname, "..", "..", "public", "index.html"));
 }
 
 app.whenReady().then(createWindow);
+
+ipcMain.once("close", app.quit);
+
+ipcMain.once("set-size", (event, size) => {
+  const win = BrowserWindow.fromWebContents(event.sender) as BrowserWindow;
+  console.log(size);
+  win.setSize(size.width, size.height);
+});

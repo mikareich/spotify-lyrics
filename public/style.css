@@ -14,7 +14,6 @@
 
 .app-container {
   width: 400px;
-  height: 100%;
   padding: 10px 20px 20px;
   background-color: var(--black);
   color: var(--white);
@@ -28,7 +27,8 @@
 }
 
 .app-header {
-  margin-bottom: 15px;
+  -webkit-app-region: drag;
+  margin-bottom: 5px;
   display: flex;
   justify-content: space-between;
   font-size: 12px;
@@ -40,7 +40,7 @@
 }
 
 .app-header__close {
-  /* Remove default button style */
+  -webkit-app-region: no-drag;
   background: none;
   border: none;
   font-size: unset;
@@ -54,16 +54,22 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  row-gap: 5px;
+  align-items: center;
   overflow: hidden;
+  row-gap: 5px;
 }
 
 .lyric-line {
   white-space: nowrap;
+  transition: 200ms;
+}
+
+.lyric-line:last-child {
+  display: none;
 }
 
 .lyric-line:first-child,
-.lyric-line:last-child {
+.lyric-line:nth-child(3) {
   font-size: 14px;
   font-weight: 300;
   color: var(--gray);
@@ -74,7 +80,18 @@
 .lyric-line:nth-child(2) {
   font-size: 26px;
   font-weight: 900;
-  animation: marquee 5s linear infinite;
+  height: 37px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.lyric-line:nth-child(2) span {
+  position: absolute;
+  left: 50%;
+  animation-duration: 1490ms;
+  animation-name: marquee;
+  animation-timing-function: linear;
 }
 
 @keyframes marquee {

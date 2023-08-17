@@ -3,27 +3,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Huhuhu</title>
+    <link rel="stylesheet" href="font.css" />
     <link rel="stylesheet" href="style.css" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'"
+    />
   </head>
   <body>
     <div class="app-container">
       <header class="app-header">
-        <span class="app-header__song"> Friesejung - 02:15</span>
+        <span class="app-header__song">oberkörperfrei - 00:14</span>
         <button class="app-header__close">Close</button>
       </header>
 
-      <ol class="lyric-lines">
+      <ol class="lyric-lines lyric-lines-line-animation">
+        <li class="lyric-line">Ich step' oberkörperfrei</li>
         <li class="lyric-line">
-          Ich bin so wie eine Sonnenbrille, bin auf Nase (drauf)
+          <span>Bei dir zuhause rein</span>
         </li>
-        <li class="lyric-line">
-          Wilmersdorf ist so wie K, ich bring' es auf die Karte (aggu)
-        </li>
-        <li class="lyric-line">
-          Ich hab' keine Flagge in der Hand, doch hab' 'ne Fahne
-        </li>
+        <li class="lyric-line">Ich hau alles kurz und klein, ey</li>
+        <li class="lyric-line">I'm not gonna lie</li>
       </ol>
     </div>
-    <script src="../build/renderer/index.js"></script>
+    <script>
+      const exports = {};
+    </script>
+    <script type="module" src="../build/renderer/index.js"></script>
   </body>
 </html>
